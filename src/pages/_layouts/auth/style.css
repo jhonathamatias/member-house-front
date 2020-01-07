@@ -1,0 +1,21 @@
+#app-auth {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-gradient-color);
+}
+
+.card {
+    max-width: 550px;
+    width: 100%;
+}
+
+.icon-button {
+    margin-right: 10px;
+}
+
+#app-button {
+    background: var(--main-bg-color);
+    margin-bottom: 15px;
+}
