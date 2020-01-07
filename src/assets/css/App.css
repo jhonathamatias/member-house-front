@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background-root: #fffafa;
+  --main-bg-color: #26a69a;
+  --secondary-color: #26a69a;
+  --bg-gradient-color: rgba(0, 0, 0, 0.8);
+  --error-color: #db4c0a;
+  --success-color: #45a832;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  background: var(--background-root);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  position: relative;
+  height: 100vh;
+}
+
+.icon-color-default {
+  color: var(--secondary-color);
+}
+
+.bg-color-main {
+  background-color: var(--secondary-color);
+}
+
+.input-field .prefix.active {
+  color: var(--secondary-color);
+}
+
+.input-field .prefix {
+  color: #ccc;
+}
+
+.small {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
