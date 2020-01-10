@@ -5,7 +5,17 @@ import api from '~/services/api';
 import history from '~/services/history';
 
 export function* signIn({ payload }) {
-    yield put(signInSuccess('adb', 'jhonw'));
+    try {
+        const response = yield call(api.get, '/auth');
+
+        const { token, user } = response.data;
+
+        yield put(signInSuccess(token, user));
+
+        // history.push('/home');
+    } catch (error) {
+        yield put(signFailure());
+    }
 }
 
 export default all([
