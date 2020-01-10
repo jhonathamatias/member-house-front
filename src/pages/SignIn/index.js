@@ -26,42 +26,45 @@ export default function SignIn() {
     const dispatch = useDispatch();
     const state = useSelector(state => state.auth);
 
+
+    console.log(state);
+
     const submitHandler = values => {
-        signinSchema.isValid(values).then(function (value) {
-            console.log(value);
+        signinSchema.validate(values).then(function (value) {
+            dispatch(signInRequest(values.email, values.password));
         }).catch(function (error) {
-            console.log(error);
+            alert('Email ou senha estão incorretos');
         });
     };
 
     return <Form id="form-signin" onSubmit={submitHandler}>
-            <InputField
-                icon="email"
-                label="E-mail"
-                id="email"
-                name="email"
-                type="email"
-                labelProps={{ htmlFor: "email" }}
-            />
-            <InputField
-                icon="lock"
-                label="Senha"
-                id="password"
-                name="password"
-                type="password"
-                labelProps={{ htmlFor: "password" }}
-            />
-            <Row>
-                <div className="col s12">
-                    <Checkbox label="Manter-me conectado" />
-                </div>
-            </Row>
-            <Button
-                icon="input"
-                fullWidth id="app-button"
-                type="submit"
-            >
-                Entrar
+        <InputField
+            icon="email"
+            label="E-mail"
+            id="email"
+            name="email"
+            type="email"
+            labelProps={{ htmlFor: "email" }}
+        />
+        <InputField
+            icon="lock"
+            label="Senha"
+            id="password"
+            name="password"
+            type="password"
+            labelProps={{ htmlFor: "password" }}
+        />
+        <Row>
+            <div className="col s12">
+                <Checkbox label="Manter-me conectado" />
+            </div>
+        </Row>
+        <Button
+            icon="input"
+            fullWidth id="app-button"
+            type="submit"
+        >
+            Entrar
         </Button>
         <Link to="/forget" id="link-forget" className="small">
             Esqueci minha senha
