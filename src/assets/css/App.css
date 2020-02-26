@@ -36,12 +36,31 @@ body {
   background-color: var(--secondary-color);
 }
 
+.input-field span {
+  font-size: 12px !important;
+}
+
+.input-field.invalid span{
+  color: var(--error-color) !important;
+  display: flex;
+  align-items: center;
+  margin-left: 45px;
+}
+
+.input-field.invalid span .material-icons{
+  margin-right: 8px;
+}
+
 .input-field .prefix.active {
   color: var(--secondary-color);
 }
 
 .input-field .prefix {
   color: #ccc;
+}
+
+.input-field.invalid .prefix {
+  color: var(--error-color);
 }
 
 .small {

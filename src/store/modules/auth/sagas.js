@@ -6,13 +6,14 @@ import history from '~/services/history';
 
 export function* signIn({ payload }) {
     try {
-        const response = yield call(api.get, '/auth');
+        // console.log(payload); return;
+        // const response = yield call(api.get, '/auth');
 
-        const { token, user } = response.data;
+        // const { token, user } = response.data;
 
-        yield put(signInSuccess(token, user));
+        yield put(signInSuccess(payload.email, payload.password));
 
-        // history.push('/home');
+        history.push('/home');
     } catch (error) {
         yield put(signFailure());
     }

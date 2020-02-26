@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-import { getToken } from '../tools/authStorage';
+import { getToken, hasToken } from '../tools/authStorage';
 
 const api = axios.create({
-    baseURL: "http://localhost:8080"
+    baseURL: "http://memberhouse.local"
 });
 
 api.interceptors.request.use(async config => {
-    const token = getToken();
-console.log(token);
-    // if (token) {
-    //     config.headers.Authorization = `Bearer ${token}`;
-    // }
+    if (hasToken()) {
+        const token = getToken();
+
+        config.headers.Authorization = `Bearer ${token}`;
+    }
 
     return config;
 });
